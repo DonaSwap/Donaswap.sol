@@ -876,12 +876,10 @@ contract DONASWAP is Context, IERC20, Ownable {
     }
 
     function setTaxFeePercent(uint256 taxFee) external onlyOwner {
-        require(taxFee <= 6, "Percentage too high. Please use a lower fee.");
         _taxFee = taxFee;
     }
 
     function setLiquidityFeePercent(uint256 liquidityFee) external onlyOwner {
-        require(liquidityFee <= 6, "Percentage too high. Please use a lower fee.");
         _liquidityFee = liquidityFee;
     }
 
