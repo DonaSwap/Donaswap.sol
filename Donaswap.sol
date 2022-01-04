@@ -679,7 +679,7 @@ contract DONASWAP is Context, IERC20, Ownable {
     address[] private _excluded;
 
     uint256 private constant MAX = ~uint256(0);
-    uint256 private _tTotal = 100000000000 * 10**6 * 10**9; //100 Quidrillion
+    uint256 private constant _tTotal = 100000000000 * 10**6 * 10**9; //100 Quidrillion
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
 
@@ -753,7 +753,7 @@ contract DONASWAP is Context, IERC20, Ownable {
         return _decimals;
     }
 
-    function totalSupply() public view override returns (uint256) {
+    function totalSupply() public pure returns (uint256) {
         return _tTotal;
     }
 
@@ -1088,7 +1088,7 @@ contract DONASWAP is Context, IERC20, Ownable {
             tokenAmount,
             0, // slippage is unavoidable
             0, // slippage is unavoidable
-            owner(),
+            address(this),
             block.timestamp
         );
     }
